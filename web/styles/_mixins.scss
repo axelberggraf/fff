@@ -1,0 +1,96 @@
+@use "./responsive" as r;
+@use "./_variables" as *;
+
+@mixin grid12 {
+  gap: var(--gap);
+  @include r(sm) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+@mixin smallType {
+  font-size: 0.8rem;
+}
+
+@mixin body {
+  font-size: 1rem;
+  line-height: 1.2em;
+  @include r.s(lg) {
+    font-size: 1rem;
+  }
+}
+
+@mixin mediumType {
+  font-size: 1.5rem;
+}
+@mixin bgElement {
+  background: rgba(255, 255, 255, 0.577);
+  backdrop-filter: blur(8px);
+  color: black;
+}
+@mixin menuItem {
+  font-family: inherit;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #f4f4f4;
+  background: var(--grey);
+  border-radius: 6px;
+  border-radius: var(--radius);
+  padding: 0.35rem 0.75rem;
+  line-height: 1.2em;
+  color: black;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@mixin menuItemHover {
+  @include r.s(sm) {
+    transition: background-color 0.2s;
+    &:hover {
+      background: #e2e2e2;
+    }
+  }
+}
+
+@mixin check {
+  // color: red;
+  padding-left: 1.5em;
+  padding-right: 4px;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 0.75em;
+    height: 0.75em;
+    border: 1px solid var(--fg);
+    top: 0.1em;
+    left: 4px;
+  }
+
+  &.checked {
+    background: var(--highlight);
+    &::before {
+      background: #00000081;
+      // content: "F";
+      // line-height: 0.8em;
+      // font-size: 1em;
+      // transform: scale(-1, 1);
+    }
+  }
+}
+
+@mixin button {
+  // all: unset;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  &:focus-visible {
+    outline: 1px solid var(--fg);
+  }
+}

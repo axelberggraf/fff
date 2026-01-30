@@ -1,0 +1,32 @@
+@use "../mixins" as m;
+
+.menu-button {
+  all: unset;
+  cursor: pointer;
+  position: fixed;
+  top: var(--padding);
+  z-index: 5;
+  left: calc(25% + 40em);
+  @include m.check;
+}
+.menu {
+  position: fixed;
+  z-index: 6;
+  top: calc(var(--padding) + 2em);
+  left: calc(25% + 40em);
+  display: flex;
+  gap: 1rem;
+
+  .menu-title {
+    display: inline-block;
+    position: relative;
+    @include m.check;
+  }
+  // .sub-menu-item {
+  //   position: relative;
+
+  //   ul {
+
+  //   }
+  // }
+}

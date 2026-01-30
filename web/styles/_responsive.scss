@@ -1,0 +1,29 @@
+$width-s: 37.5rem;
+$width-sm: 45rem;
+$width-md: 65rem;
+$width-lg: 85rem;
+$width-xl: 125rem;
+
+@mixin s($width) {
+  @if $width == s {
+    @media only screen and (min-width: $width-s) {
+      @content;
+    }
+  } @else if $width == sm {
+    @media only screen and (min-width: $width-sm) {
+      @content;
+    }
+  } @else if $width == md {
+    @media only screen and (min-width: $width-md) {
+      @content;
+    }
+  } @else if $width == lg {
+    @media only screen and (min-width: $width-lg) {
+      @content;
+    }
+  } @else if $width == xl {
+    @media only screen and (min-width: $width-xl) {
+      @content;
+    }
+  }
+}

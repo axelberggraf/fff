@@ -1,0 +1,166 @@
+@use "./variables" as *;
+@use "./mixins" as m;
+@use "./responsive" as r;
+
+html,
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "STK Bureau Sans", Helvetica, sans-serif;
+  font-weight: 500;
+  color: var(--fg);
+  background: var(--bg);
+  scroll-behavior: smooth;
+  // scroll-padding-top: 8rem;
+  // scroll-padding-top: calc(var(--header-height) + (var(--padding) * 2));
+
+  @include r.s(sm) {
+    scroll-padding-top: 5rem;
+  }
+
+  // font-size: 5rem;
+}
+
+body {
+  padding: var(--padding);
+  padding-top: 5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+p,
+h2,
+h3,
+h4,
+li,
+div {
+  font-weight: inherit;
+  color: inherit;
+}
+
+p {
+  @include m.body;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: inherit;
+  margin-top: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+p::selection,
+a::selection,
+span::selection,
+li::selection,
+sup::selection,
+div::selection,
+img::selection,
+br::selection,
+footer::selection,
+input::selection,
+label::selection,
+em::selection {
+  background: var(--accent);
+  color: black;
+  opacity: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.home-button {
+  @include m.button;
+  text-decoration: none;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--accent);
+  outline: 1px solid var(--fg);
+}
+input:focus-visible {
+}
+
+.dog-img {
+  width: 100%;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    mix-blend-mode: var(--blend-mode);
+  }
+}
+.shake-animation {
+  animation: shake 0.3s;
+}
+.text-block-center {
+  display: block;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  @include r.s(sm) {
+    padding: 0 2rem;
+  }
+}
+
+.ellipsis-animation {
+  padding-right: 1em;
+  &:after {
+    content: "";
+    position: absolute;
+    animation: dots 1s steps(3, end) infinite;
+  }
+}
+.text-image {
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    mix-blend-mode: multiply;
+    mix-blend-mode: var(--blend-mode);
+  }
+}
+.text-image-center {
+  margin: 0 auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  img {
+    max-width: 80%;
+    height: auto;
+    mix-blend-mode: multiply;
+    mix-blend-mode: var(--blend-mode);
+  }
+
+  @include r.s(sm) {
+    img {
+      max-width: 50%;
+      max-width: 400px;
+      height: auto;
+    }
+  }
+}
