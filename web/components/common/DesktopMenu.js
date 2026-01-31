@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export default function DesktopMenu({ config, activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  console.log("active", activePage);
   return (
     <>
       <button
@@ -19,7 +20,7 @@ export default function DesktopMenu({ config, activePage }) {
                 <Link href={item.href}>
                   <div
                     className={`menu-title ${
-                      activePage.firstSlug === item.id ? "checked" : ""
+                      activePage.firstSlug === item.slug ? "checked" : ""
                     }`}
                   >
                     {item.label}
@@ -27,7 +28,7 @@ export default function DesktopMenu({ config, activePage }) {
                 </Link>
 
                 {/* Render sub-items if they exist and this section is active */}
-                {item.subItems && activePage.firstSlug === item.id && (
+                {item.subItems && activePage.firstSlug === item.slug && (
                   <ul style={{ marginLeft: "1em" }}>
                     {item.subItems.map((subItem) => (
                       <li key={subItem.slug}>

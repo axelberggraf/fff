@@ -2,33 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-// Configuration for menu structure
-
 export default function SubMenu({ config, activePage }) {
-  const router = useRouter();
-  // const [activePage, setActivePage] = useState({
-  //   firstSlug: "FFF",
-  //   secondSlug: null,
-  // });
-
-  // const resolveActivePage = () => {
-  //   const pathSegments = router.asPath.split("/").filter(Boolean);
-  //   const firstSlug = pathSegments[0];
-  //   const secondSlug = pathSegments[1];
-
-  //   // Find matching menu item
-  //   const menuItem = menuConfig.find((item) => item.slug === firstSlug);
-
-  //   return {
-  //     firstSlug: menuItem ? menuItem.id : "FFF",
-  //     secondSlug: secondSlug || null,
-  //   };
-  // };
-
-  // useEffect(() => {
-  //   setActivePage(resolveActivePage());
-  // }, [router.asPath]);
-
   return (
     <div className="sub-menu">
       {config.map((item) => (
@@ -36,7 +10,7 @@ export default function SubMenu({ config, activePage }) {
           <Link href={item.href}>
             <div
               className={`sub-menu-title ${
-                activePage.firstSlug === item.id ? "checked" : ""
+                activePage.firstSlug === item.slug ? "checked" : ""
               }`}
             >
               {item.label}
@@ -44,7 +18,7 @@ export default function SubMenu({ config, activePage }) {
           </Link>
 
           {/* Render sub-items if they exist and this section is active */}
-          {item.subItems && activePage.firstSlug === item.id && (
+          {item.subItems && activePage.firstSlug === item.slug && (
             <ul>
               {item.subItems.map((subItem) => (
                 <li key={subItem.slug}>

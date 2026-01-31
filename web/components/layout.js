@@ -6,49 +6,49 @@ import DesktopMenu from "./common/DesktopMenu";
 
 const menuConfig = [
   {
-    id: "Om",
+    id: "om",
     label: "Om",
     href: "/om",
     slug: "om", // null means it's the home/default page
   },
   {
-    id: "Medlemmer",
+    // id: "medlemmer",
     label: "Medlemmer",
     href: "/medlemmer",
     slug: "medlemmer", // null means it's the home/default page
   },
   {
-    id: "BliMedlem",
+    id: "bli-medlem",
     label: "Bli Medlem",
     href: "/bli-medlem",
     slug: "bli-medlem", // null means it's the home/default page
   },
   {
-    id: "Fagpolitikk",
+    // id: "fagpolitikk",
     label: "Fagpolitikk",
     href: "/fagpolitikk",
     slug: "fagpolitikk", // null means it's the home/default page
   },
   {
-    id: "Bibliotek",
+    // id: "bibliotek",
     label: "Bibliotek",
     href: "/bibliotek",
     slug: "bibliotek", // null means it's the home/default page
   },
   {
-    id: "Leilighet",
+    // id: "leilighet",
     label: "Leilighet",
     href: "/leilighet",
     slug: "leilighet", // null means it's the home/default page
   },
   {
-    id: "Stipender",
+    // id: "stipender",
     label: "Stipender",
     href: "/stipender",
     slug: "stipender", // null means it's the home/default page
   },
   {
-    id: "VU",
+    // id: "VU",
     label: "Vårutstillingen",
     href: "/varutstillingen",
     slug: "varutstillingen",
@@ -60,7 +60,7 @@ const menuConfig = [
     ],
   },
   {
-    id: "FFO",
+    // id: "FFO",
     label: "Fotobokfestivalen",
     href: "/fotobokfestivalen",
     slug: "fotobokfestivalen",
@@ -73,13 +73,13 @@ const menuConfig = [
 ];
 const subMenuConfig = [
   {
-    id: "FFF",
     label: "FFF",
     href: "/",
     slug: null, // null means it's the home/default page
+    // id: "FFF",
   },
   {
-    id: "VU",
+    // id: "VU",
     label: "Vårutstillingen",
     href: "/varutstillingen",
     slug: "varutstillingen",
@@ -91,7 +91,7 @@ const subMenuConfig = [
     ],
   },
   {
-    id: "FFO",
+    // id: "FFO",
     label: "Fotobokfestivalen",
     href: "/fotobokfestivalen",
     slug: "fotobokfestivalen",
@@ -114,12 +114,16 @@ export default function Layout({ children }) {
     const pathSegments = router.asPath.split("/").filter(Boolean);
     const firstSlug = pathSegments[0];
     const secondSlug = pathSegments[1];
-
-    // Find matching menu item
-    const menuItem = subMenuConfig.find((item) => item.slug === firstSlug);
+    // console.log(firstSlug);
+    // // Find matching menu item
+    // let menuItem = subMenuConfig.find((item) => item.slug === firstSlug);
+    // if (!menuItem) {
+    //   menuItem = menuConfig.find((item) => item.slug === firstSlug);
+    // }
+    // console.log(firstSlug);
 
     return {
-      firstSlug: menuItem ? menuItem.id : "FFF",
+      firstSlug: firstSlug || null,
       secondSlug: secondSlug || null,
     };
   };
