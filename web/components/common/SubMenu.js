@@ -6,7 +6,7 @@ export default function SubMenu({ config, activePage }) {
   return (
     <div className="sub-menu">
       {config.map((item) => (
-        <div key={item.id} className="sub-menu-item">
+        <div key={item.slug} className="sub-menu-item">
           <Link href={item.href}>
             <div
               className={`sub-menu-title ${

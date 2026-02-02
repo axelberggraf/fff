@@ -3,52 +3,47 @@ import SubMenu from "./common/SubMenu";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import DesktopMenu from "./common/DesktopMenu";
-
+import useWindowSize from "@/hooks/useWindowSize";
+import Logo from "./common/Logo.js";
 const menuConfig = [
   {
     id: "om",
     label: "Om",
     href: "/om",
-    slug: "om", // null means it's the home/default page
+    slug: "om",
   },
   {
-    // id: "medlemmer",
     label: "Medlemmer",
     href: "/medlemmer",
-    slug: "medlemmer", // null means it's the home/default page
+    slug: "medlemmer",
   },
   {
     id: "bli-medlem",
     label: "Bli Medlem",
     href: "/bli-medlem",
-    slug: "bli-medlem", // null means it's the home/default page
+    slug: "bli-medlem",
   },
   {
-    // id: "fagpolitikk",
     label: "Fagpolitikk",
     href: "/fagpolitikk",
-    slug: "fagpolitikk", // null means it's the home/default page
+    slug: "fagpolitikk",
   },
   {
-    // id: "bibliotek",
     label: "Bibliotek",
     href: "/bibliotek",
-    slug: "bibliotek", // null means it's the home/default page
+    slug: "bibliotek",
   },
   {
-    // id: "leilighet",
     label: "Leilighet",
     href: "/leilighet",
-    slug: "leilighet", // null means it's the home/default page
+    slug: "leilighet",
   },
   {
-    // id: "stipender",
     label: "Stipender",
     href: "/stipender",
-    slug: "stipender", // null means it's the home/default page
+    slug: "stipender",
   },
   {
-    // id: "VU",
     label: "Vårutstillingen",
     href: "/varutstillingen",
     slug: "varutstillingen",
@@ -60,7 +55,6 @@ const menuConfig = [
     ],
   },
   {
-    // id: "FFO",
     label: "Fotobokfestivalen",
     href: "/fotobokfestivalen",
     slug: "fotobokfestivalen",
@@ -75,11 +69,9 @@ const subMenuConfig = [
   {
     label: "FFF",
     href: "/",
-    slug: null, // null means it's the home/default page
-    // id: "FFF",
+    slug: null,
   },
   {
-    // id: "VU",
     label: "Vårutstillingen",
     href: "/varutstillingen",
     slug: "varutstillingen",
@@ -91,7 +83,6 @@ const subMenuConfig = [
     ],
   },
   {
-    // id: "FFO",
     label: "Fotobokfestivalen",
     href: "/fotobokfestivalen",
     slug: "fotobokfestivalen",
@@ -109,18 +100,12 @@ export default function Layout({ children }) {
     firstSlug: "FFF",
     secondSlug: null,
   });
+  const windowSize = useWindowSize();
 
   const resolveActivePage = () => {
     const pathSegments = router.asPath.split("/").filter(Boolean);
     const firstSlug = pathSegments[0];
     const secondSlug = pathSegments[1];
-    // console.log(firstSlug);
-    // // Find matching menu item
-    // let menuItem = subMenuConfig.find((item) => item.slug === firstSlug);
-    // if (!menuItem) {
-    //   menuItem = menuConfig.find((item) => item.slug === firstSlug);
-    // }
-    // console.log(firstSlug);
 
     return {
       firstSlug: firstSlug || null,
@@ -135,7 +120,10 @@ export default function Layout({ children }) {
     <>
       <main>
         <Header />
-        <SubMenu config={subMenuConfig} activePage={activePage} />
+        <Logo activePage={activePage} />
+        {!windowSize.isMobile && (
+          <SubMenu config={subMenuConfig} activePage={activePage} />
+        )}
         <div
           style={{
             minHeight: "calc(100vh - 10rem)",

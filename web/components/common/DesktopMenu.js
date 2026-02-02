@@ -3,9 +3,15 @@ import Link from "next/link";
 
 export default function DesktopMenu({ config, activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log("active", activePage);
   return (
     <>
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="menu-backrdop"
+          style={{ position: "fixed", inset: 0 }}
+        ></div>
+      )}
       <button
         className={`menu-button ${menuOpen ? "checked" : ""}`}
         onClick={() => setMenuOpen((prev) => !prev)}

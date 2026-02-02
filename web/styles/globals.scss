@@ -7,7 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "STK Bureau Sans", Helvetica, sans-serif;
+  // font-family: "STK Bureau Sans", Helvetica, sans-serif;
   font-weight: 500;
   color: var(--fg);
   background: var(--bg);
@@ -79,7 +79,7 @@ footer::selection,
 input::selection,
 label::selection,
 em::selection {
-  background: var(--accent);
+  background: var(--highlight);
   color: black;
   opacity: 1;
 }

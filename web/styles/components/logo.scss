@@ -1,0 +1,21 @@
+@use "../mixins" as m;
+
+.logo-container {
+  position: absolute;
+  top: 1rem;
+
+  span {
+    display: block;
+    padding-left: 1em;
+    position: relative;
+    line-height: 0.9em;
+
+    &:before {
+      content: "F";
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: scale(-1, 1);
+    }
+  }
+}
