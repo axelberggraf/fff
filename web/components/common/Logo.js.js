@@ -14,15 +14,15 @@ export default function Logo({ activePage }) {
       {activePage?.firstSlug == "varutstillingen" && (
         <div className="logo-container">
           <span>Vårutstillingen</span>
-          <span>&nbsp;</span>
-          <span></span>
+          {/* <span>&nbsp;</span>
+          <span></span> */}
         </div>
       )}
       {activePage?.firstSlug == "fotobokfestivalen" && (
         <div className="logo-container">
           <span>Fotobokfestivalen</span>
-          <span>&nbsp;</span>
-          <span></span>
+          {/* <span>&nbsp;</span>
+          <span></span> */}
         </div>
       )}
     </>
