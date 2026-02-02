@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Layout from "@/components/layout";
 
-export default function FFOHistorikk() {
+export default function FFArkiv() {
   return (
     <>
       <Head>
@@ -18,6 +18,6 @@ export default function FFOHistorikk() {
   );
 }
 
-FFOHistorikk.getLayout = function getLayout(page) {
+FFArkiv.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };

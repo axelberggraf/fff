@@ -74,6 +74,7 @@ export default function FlowingFs() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
       }}
     >
       {items.map((i) => (
@@ -83,6 +84,7 @@ export default function FlowingFs() {
           style={{
             transform: "scaleX(var(--sx, 0))",
             fontSize: "var(--fs, 6vw)",
+            color: (i - 1) % 4 == 0 ? "white" : "black",
           }}
         >
           F
