@@ -49,7 +49,7 @@ const menuConfig = [
     slug: "varutstillingen",
     subItems: [
       { slug: "om", label: "Om" },
-      { slug: "historikk", label: "Historikk" },
+      // { slug: "historikk", label: "Historikk" },
       { slug: "soknadsinfo", label: "Søknadsinformasjon" },
       { slug: "arkiv", label: "Arkiv" },
     ],
@@ -77,7 +77,7 @@ const subMenuConfig = [
     slug: "varutstillingen",
     subItems: [
       { slug: "om", label: "Om" },
-      { slug: "historikk", label: "Historikk" },
+      // { slug: "historikk", label: "Historikk" },
       { slug: "soknadsinfo", label: "Søknadsinformasjon" },
       { slug: "arkiv", label: "Arkiv" },
     ],
