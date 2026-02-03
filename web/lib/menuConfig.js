@@ -37,6 +37,17 @@ export const menuConfig = [
     slug: "stipender",
   },
   {
+    label: "Arkiv",
+    href: "/arkiv",
+    slug: "arkiv",
+    subItems: [
+      // { slug: "om", label: "Om" },
+      // { slug: "historikk", label: "Historikk" },
+      // { slug: "soknadsinfo", label: "Søknadsinformasjon" },
+      // { slug: "arkiv", label: "Arkiv" },
+    ],
+  },
+  {
     label: "Vårutstillingen",
     href: "/varutstillingen",
     slug: "varutstillingen",

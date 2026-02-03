@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef } from "react";
 
 export default function FlowingFs() {
-  const COUNT = 32;
+  const COUNT = 16;
 
-  const SCALE_LIMIT = 200; // px
+  const SCALE_LIMIT = 75; // px
   const SIZE_LIMIT = 500; // px
 
   const MAX_VW = 10; // biggest at center
@@ -47,7 +47,7 @@ export default function FlowingFs() {
         const sizeEdge = clamp01(Math.abs(dx) / SIZE_LIMIT);
         const fontSizeVw = lerp(MAX_VW, MIN_VW, sizeEdge);
 
-        el.style.setProperty("--sx", scaleX);
+        el.style.setProperty("--sx", -scaleX);
         el.style.setProperty("--fs", `${fontSizeVw}vw`);
       }
 
@@ -75,6 +75,7 @@ export default function FlowingFs() {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        gap: "32px",
       }}
     >
       {items.map((i) => (
@@ -83,8 +84,9 @@ export default function FlowingFs() {
           ref={(el) => (itemRefs.current[i] = el)}
           style={{
             transform: "scaleX(var(--sx, 0))",
-            fontSize: "var(--fs, 6vw)",
-            color: (i - 1) % 4 == 0 ? "white" : "black",
+            // fontSize: "var(--fs, 6vw)",
+            fontSize: "10rem",
+            // color: (i - 1) % 4 == 0 ? "white" : "black",
           }}
         >
           F
