@@ -17,6 +17,11 @@ export const menuConfig = [
     slug: "bli-medlem",
   },
   {
+    label: "Nyheter",
+    href: "/nyheter",
+    slug: "nyheter",
+  },
+  {
     label: "Fagpolitikk",
     href: "/fagpolitikk",
     slug: "fagpolitikk",
@@ -36,6 +41,7 @@ export const menuConfig = [
     href: "/stipender",
     slug: "stipender",
   },
+
   {
     label: "Arkiv",
     href: "/arkiv",
@@ -71,11 +77,11 @@ export const menuConfig = [
 ];
 
 export const subMenuConfig = [
-  {
-    label: "FFF",
-    href: "/",
-    slug: null,
-  },
+  // {
+  //   label: "FFF",
+  //   href: "/",
+  //   slug: null,
+  // },
   {
     label: "Vårutstillingen",
     href: "/varutstillingen",

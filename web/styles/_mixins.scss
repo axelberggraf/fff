@@ -96,3 +96,11 @@
     outline: 1px solid var(--fg);
   }
 }
+
+@mixin grid {
+  @include r.s(sm) {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}

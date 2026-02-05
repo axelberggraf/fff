@@ -63,6 +63,7 @@ export default function FlowingFs() {
         // ===== DESKTOP: Mouse tracking =====
         if (!pointerRef.current.hasMoved) {
           rafRef.current = requestAnimationFrame(update);
+
           return;
         }
 

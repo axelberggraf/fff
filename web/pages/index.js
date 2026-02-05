@@ -3,7 +3,12 @@ import Image from "next/image";
 import Layout from "../components/layout";
 import { earl } from "@/fonts";
 import FlowingFs from "@/components/flowingFs";
-export default function Home() {
+import { SETTINGS } from "@/lib/queries";
+import NewsModule from "@/components/modules/newsModule";
+import { client } from "@/client";
+import groq from "groq";
+
+export default function Home({ page, news }) {
   return (
     <>
       <Head>
@@ -12,6 +17,7 @@ export default function Home() {
       <div>
         <main>
           <FlowingFs />
+          <NewsModule news={news} />
           <h1>Forbundet frie fotografer</h1>
           <div>
             <p className={earl.className} style={{ fontSize: "3rem" }}>
@@ -28,3 +34,41 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
+
+export async function getStaticProps() {
+  const page = await client.fetch(
+    groq`
+    *[_id == "singleton-home" ][0] {
+      ...
+    }
+  `,
+  );
+  const news = await client.fetch(
+    groq`
+    *[_type == "news" ] | order(date desc) {
+      ...
+    }
+  `,
+  );
+
+  // if (!page) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+
+  const settings = await client.fetch(groq`
+    *[_id == "singleton-settings"][0]
+      {
+        ${SETTINGS}
+      }`);
+
+  return {
+    props: {
+      page,
+      news,
+      settings,
+    },
+    revalidate: 60,
+  };
+}

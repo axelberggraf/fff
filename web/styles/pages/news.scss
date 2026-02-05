@@ -1,0 +1,15 @@
+@use "../mixins" as m;
+
+.news-page {
+  @include m.grid;
+
+  h1 {
+    grid-column: 2 / span 4;
+  }
+  h1 {
+    grid-column: 2 / span 4;
+  }
+  .rich-text {
+    grid-column: 2 / span 4;
+  }
+}

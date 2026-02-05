@@ -1,0 +1,31 @@
+@use "../mixins" as m;
+
+.news-module {
+  @include m.grid;
+  margin-bottom: 3rem;
+
+  a {
+    text-decoration: none;
+  }
+  article {
+    position: relative;
+    padding-left: 1em;
+    h4 {
+      margin-bottom: 0;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+    .news-date {
+      opacity: 0.5;
+    }
+
+    &::before {
+      content: "F";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(-1, 1);
+    }
+  }
+}

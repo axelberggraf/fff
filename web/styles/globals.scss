@@ -12,11 +12,13 @@ body {
   color: var(--fg);
   background: var(--bg);
   scroll-behavior: smooth;
-  // scroll-padding-top: 8rem;
-  // scroll-padding-top: calc(var(--header-height) + (var(--padding) * 2));
 
   @include r.s(sm) {
     scroll-padding-top: 5rem;
+  }
+
+  @include r.s(xl) {
+    font-size: 1.1rem;
   }
 
   // font-size: 5rem;

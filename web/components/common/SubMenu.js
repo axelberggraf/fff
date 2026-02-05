@@ -5,6 +5,20 @@ import { useEffect, useState } from "react";
 export default function SubMenu({ config, activePage }) {
   return (
     <div className="sub-menu">
+      <div className="sub-menu-item">
+        <Link href={"/"}>
+          <div
+            className={`sub-menu-title ${
+              activePage.firstSlug != "varutstillingen" &&
+              activePage.firstSlug != "fotobokfestivalen"
+                ? "checked"
+                : ""
+            }`}
+          >
+            FFF
+          </div>
+        </Link>
+      </div>
       {config.map((item) => (
         <div key={item.slug} className="sub-menu-item">
           <Link href={item.href}>
