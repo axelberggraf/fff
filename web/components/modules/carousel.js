@@ -27,7 +27,7 @@ export default function Carousel({ props, slides }) {
           sizes="(max-width: 720px) calc(100vw - var(--padding)), 50vw"
         />
         {slides[index].caption && (
-          <div className="f-hook">{slides[index].caption}</div>
+          <div className="caption f-hook">{slides[index].caption}</div>
         )}
       </div>
       <button

@@ -8,18 +8,6 @@ export default (S) =>
         .title('Hjem')
         .child(S.document().title('Hjem').schemaType('home').documentId('singleton-home')),
       S.divider(),
-
-      S.listItem()
-        .title('Nyheter')
-        .icon(BsNewspaper)
-        .child(
-          S.list()
-            .title('VU')
-            .items([
-              S.listItem().title('Nyhetssaker').child(S.documentTypeList('news')),
-              S.listItem().title('Medlemsnytt').child(S.documentTypeList('medlemsNytt')),
-            ]),
-        ),
       S.listItem()
         .title('Vårutstillingen')
         .icon(BsSunrise)
@@ -60,6 +48,17 @@ export default (S) =>
             ]),
         ),
       S.divider(),
+      S.listItem()
+        .title('Nyheter')
+        .icon(BsNewspaper)
+        .child(
+          S.list()
+            .title('VU')
+            .items([
+              S.listItem().title('Nyhetssaker').child(S.documentTypeList('news')),
+              S.listItem().title('Medlemsnytt').child(S.documentTypeList('medlemsNytt')),
+            ]),
+        ),
       // S.listItem().title('Exhibitors').child(S.documentTypeList('exhibitor')),
       //   S.listItem()
       //     .title('Exhibitors')
@@ -89,7 +88,7 @@ export default (S) =>
       //         ]),
       //     ),
       // S.listItem().title('Products').child(S.documentTypeList('product')),
-
+      S.divider(),
       S.listItem()
         .title('Settings')
         .icon(BsGear)
