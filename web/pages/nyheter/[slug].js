@@ -5,7 +5,6 @@ import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
 import Head from "next/head";
 import { PortableText } from "@portabletext/react";
 import { serializer } from "@/lib/serializer";
-import { draftMode } from "next/headers";
 
 export default function Nyhet({ page, settings }) {
   console.log(page);
