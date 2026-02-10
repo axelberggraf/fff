@@ -40,6 +40,7 @@ export default function SanityImage({
       placeholder={image.asset?.metadata?.lqip ? "blur" : "empty"}
       blurDataURL={image.asset?.metadata?.lqip}
       style={{ width: "100%", height: "auto" }}
+      key={image.asset._id}
       {...props}
     />
   );
