@@ -106,6 +106,18 @@ export default {
       },
     },
     {
+      type: 'object',
+      name: 'carousel',
+
+      fields: [
+        {
+          type: 'array',
+          name: 'slides',
+          of: [{type: 'img'}],
+        },
+      ],
+    },
+    {
       type: 'image',
       fields: [
         {

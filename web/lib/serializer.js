@@ -1,12 +1,10 @@
-// import { PiFileArrowDown } from "react-icons/pi";
-// import TextButton from "@/components/parts/textButton";
-// import TextImage from "@/components/parts/textImage";
+import Carousel from "@/components/modules/carousel";
 import Link from "next/link";
 export const serializer = {
   block: {
     normal: ({ children }) => <p>{children}</p>,
     h2: ({ children }) => <h2 className="text-editor-h2">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-editor-h3">{children}</h3>,
+    h3: ({ children }) => <h3 className="text-editor-h3 f-hook">{children}</h3>,
     h4: ({ children }) => <h4 className="text-editor-h4">{children}</h4>,
     center: ({ children }) => <p className="text-editor-center">{children}</p>,
     small: ({ children }) => <p className="text-editor-small">{children}</p>,
@@ -44,10 +42,13 @@ export const serializer = {
       return children;
     },
   },
-  // types: {
-  //   button: (props) => <TextButton content={props.value} />,
-  //   image: (props) => {
-  //     return <TextImage image={props.value} />;
-  //   },
-  // },
+  types: {
+    button: (props) => <TextButton content={props.value} />,
+    carousel: (props) => (
+      <Carousel props={props.value} slides={props.value.slides} />
+    ),
+    // image: (props) => {
+    //   return <TextImage image={props.value} />;
+    // },
+  },
 };

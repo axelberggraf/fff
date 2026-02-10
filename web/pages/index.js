@@ -18,13 +18,21 @@ export default function Home({ page, news }) {
         <main>
           <FlowingFs />
           <NewsModule news={news} />
-          <h1>Forbundet frie fotografer</h1>
-          <div>
-            <p className={earl.className} style={{ fontSize: "3rem" }}>
-              FFF er fagorganisasjonen for fotografer og kamerabaserte
-              kunstnere, etablert i 1974 for å fremme kunstfotografiet i Norge.
-            </p>
-          </div>
+          {/* <h1>Forbundet frie fotografer</h1> */}
+          {page.intro && (
+            <div>
+              <p
+                className={earl.className}
+                style={{
+                  fontSize: "2rem",
+                  textAlign: "center",
+                  padding: "0 20%",
+                }}
+              >
+                {page.intro}
+              </p>
+            </div>
+          )}
         </main>
       </div>
     </>

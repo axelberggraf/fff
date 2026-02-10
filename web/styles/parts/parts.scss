@@ -1,0 +1,5 @@
+@use "../mixins" as m;
+
+.f-hook {
+  @include m.f-hook;
+}

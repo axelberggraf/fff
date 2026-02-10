@@ -1,6 +1,6 @@
 @use "../mixins" as m;
 
-.news-page {
+.template-page {
   @include m.grid;
 
   h1 {

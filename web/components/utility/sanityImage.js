@@ -1,51 +1,46 @@
 import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
-import client from "@/client";
-// Image URL builder
-const builder = imageUrlBuilder(client);
+import { client } from "@/client";
 
-// Helper to build image URLs
+const builder = imageUrlBuilder(client);
 const urlFor = (source) => builder.image(source);
 
-const SanityImage = ({
+export default function SanityImage({
   image,
-  alt,
-  width = null,
-  height = null,
-  quality = 100,
-  layout = "responsive",
-}) => {
-  if (!image || !image.asset) {
-    console.error("Invalid image object passed to SanityImage:", image);
-    return null;
-  }
+  alt = "",
+  sizes = "100vw", // default fallback
+  quality = 75,
+  priority = false,
+  maxWidth = 2000,
+  ...props
+}) {
+  if (!image?.asset) return null;
 
-  // Build the image URL
-  let imageUrlBuilder;
-  if (height) {
-    imageUrlBuilder = urlFor(image.asset._id)
-      .height(height)
-      .quality(quality)
-      .auto("format");
-  } else {
-    imageUrlBuilder = urlFor(image.asset._id)
-      .width(width)
-      .quality(quality)
-      .auto("format");
-  }
+  const dims = image.asset?.metadata?.dimensions;
+  const width = dims?.width;
+  const height = dims?.height;
 
-  const imageUrl = imageUrlBuilder.url();
+  if (!width || !height) return null;
+
+  const src = urlFor(image)
+    .width(Math.min(width, maxWidth))
+    .quality(quality)
+    .auto("format")
+    .fit("max")
+    .url();
 
   return (
     <Image
-      src={imageUrl}
-      alt={image.alt || alt || "Smuss Typekiosk"}
-      width={image.asset.metadata.dimensions.width}
-      height={image.asset.metadata.dimensions.height} // If height is not provided, it's undefined for auto height
-      placeholder="blur"
-      blurDataURL={image.asset.metadata.lqip} // Low-res version for blur placeholder
+      src={src}
+      alt={image.alt || alt}
+      width={width}
+      height={height}
+      sizes={sizes}
+      priority={priority}
+      placeholder={image.asset?.metadata?.lqip ? "blur" : "empty"}
+      blurDataURL={image.asset?.metadata?.lqip}
+      style={{ width: "100%", height: "auto" }}
+      {...props}
     />
   );
-};
-
-export default SanityImage;
+}

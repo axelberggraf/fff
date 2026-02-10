@@ -108,13 +108,15 @@ export default function FlowingFs() {
   return (
     <div
       style={{
-        width: "100%",
+        width: "100vw",
         height: "200px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
-        gap: "1vw",
+        gap: "2vw",
+        margin: "0 calc(var(--padding) * -1)",
+        marginBottom: "4rem",
       }}
     >
       {items.map((i) => (
@@ -124,7 +126,7 @@ export default function FlowingFs() {
           style={{
             transform: "scaleX(var(--sx, 0))",
             // fontSize: "var(--fs, 6vw)",
-            fontSize: "10vw",
+            fontSize: "8vw",
             // color: (i - 1) % 4 == 0 ? "white" : "black",
           }}
         >

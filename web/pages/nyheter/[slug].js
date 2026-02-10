@@ -1,10 +1,11 @@
 import Layout from "@/components/layout";
-import { client } from "@/client";
+import { client, previewClient } from "@/client";
 import groq from "groq";
 import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
 import Head from "next/head";
 import { PortableText } from "@portabletext/react";
 import { serializer } from "@/lib/serializer";
+import { draftMode } from "next/headers";
 
 export default function Nyhet({ page, settings }) {
   console.log(page);

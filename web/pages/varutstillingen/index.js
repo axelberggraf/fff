@@ -11,7 +11,7 @@ export default function VU() {
       <div>
         <main>
           <h1>Vårutstillingen</h1>
-          <DisplacedImage src="/images/asdf.jpg" width={1200} height={600} />
+          {/* <DisplacedImage src="/images/asdf.jpg" width={1200} height={600} /> */}
         </main>
       </div>
     </>

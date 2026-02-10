@@ -10,8 +10,7 @@ export default defineConfig({
   projectId: 'w78wyvil',
   dataset: 'production',
 
-  plugins: [ structureTool({structure: deskStructure}),
- visionTool()],
+  plugins: [structureTool({structure: deskStructure}), visionTool()],
 
   schema: {
     types: schemaTypes,

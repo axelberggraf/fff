@@ -1,0 +1,30 @@
+@use "../mixins" as m;
+
+.carousel {
+  position: relative;
+  button {
+    all: unset;
+    background: var(--fg);
+    color: var(--bg);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+  }
+  .prev-button {
+    position: absolute;
+    right: calc(100% + 1rem);
+    top: calc(50% - 1em);
+  }
+  .next-button {
+    position: absolute;
+    left: calc(100% + 1rem);
+    top: calc(50% - 1em);
+  }
+}

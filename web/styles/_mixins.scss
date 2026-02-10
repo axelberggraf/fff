@@ -100,7 +100,20 @@
 @mixin grid {
   @include r.s(sm) {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1rem;
+  }
+}
+
+@mixin f-hook {
+  position: relative;
+  padding-left: 1em;
+  &::before {
+    content: "F";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(-1, 1);
+    color: var(--dark-grey);
   }
 }

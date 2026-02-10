@@ -47,6 +47,10 @@ div {
   color: inherit;
 }
 
+h3 {
+  font-size: 1rem;
+}
+
 p {
   @include m.body;
 }

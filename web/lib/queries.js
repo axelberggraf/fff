@@ -1,5 +1,6 @@
 export const IMG = `
         alt,
+        caption,
         asset->{
             _id,
             metadata{
@@ -86,6 +87,11 @@ export const TEXTBLOCK = `
       _type == 'image' => {
         style,
         ${IMG}
+    },
+      _type == 'carousel' => {
+        slides[]{
+            ${IMG}
+        }
     },
     `;
 
