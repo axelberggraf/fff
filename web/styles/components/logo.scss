@@ -3,13 +3,17 @@
 .logo-container {
   position: absolute;
   top: 1rem;
-
+  a {
+    text-decoration: none;
+  }
   span {
     display: block;
+
+    line-height: 0.9em;
+  }
+  .f {
     padding-left: 1em;
     position: relative;
-    line-height: 0.9em;
-
     &:before {
       content: "F";
       position: absolute;
