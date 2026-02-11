@@ -2,12 +2,14 @@
 
 .news-module {
   @include m.grid;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
 
   a {
     text-decoration: none;
     &:hover {
-      opacity: 0.5;
+      // opacity: 0.5;
+      // background: var(--highlight);
+      background: var(--highlight-light);
     }
     // grid-template-columns: span 2;
     grid-column: span 2;

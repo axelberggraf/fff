@@ -22,7 +22,11 @@ export default function DesktopMenu({ config, activePage }) {
         <div className="menu">
           <div>
             {config.map((item) => (
-              <div key={item.id} className="menu-item">
+              <div
+                key={item.id}
+                className="menu-item"
+                style={{ ...item.style }}
+              >
                 <Link href={item.href}>
                   <div
                     className={`menu-title ${
@@ -55,6 +59,16 @@ export default function DesktopMenu({ config, activePage }) {
                 )}
               </div>
             ))}
+            <Link
+              className="link-button"
+              href="http://minside.fffotografer.no/"
+              target="blank"
+              rel="noreferrer"
+              style={{ marginTop: "1rem" }}
+            >
+              <div>Min Side</div>
+              <div>↗</div>
+            </Link>
           </div>
         </div>
       )}

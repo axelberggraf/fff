@@ -18,6 +18,12 @@ export default {
       type: 'array',
       of: [{type: 'string'}],
     },
+    {
+      name: 'events',
+      title: 'Arrangementer',
+      type: 'array',
+      of: [{type: 'event'}],
+    },
   ],
   // preview: {
   //   prepare() {

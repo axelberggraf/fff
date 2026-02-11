@@ -21,6 +21,9 @@
     display: inline-block;
     position: relative;
     @include m.check;
+    &:hover {
+      background: var(--highlight-light);
+    }
   }
   // .sub-menu-item {
   //   position: relative;

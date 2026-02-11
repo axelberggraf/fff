@@ -19,7 +19,7 @@ export default function Logo({ activePage }) {
         <div
           className="logo-container"
           onMouseEnter={() => setShowFFF(true)}
-          onMouseLeave={() => setTimeout(() => setShowFFF(false), 100)}
+          onMouseLeave={() => setShowFFF(false)}
         >
           {showFFF ? (
             <>
@@ -42,7 +42,7 @@ export default function Logo({ activePage }) {
         <div
           className="logo-container"
           onMouseEnter={() => setShowFFF(true)}
-          onMouseLeave={() => setTimeout(() => setShowFFF(false), 100)}
+          onMouseLeave={() => setTimeout(() => setShowFFF(false), 200)}
         >
           {showFFF ? (
             <>

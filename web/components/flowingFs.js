@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function FlowingFs() {
-  const COUNT = 16;
+  const COUNT = 20;
 
   const SCALE_LIMIT = 60; // px
   const SIZE_LIMIT = 500; // px
@@ -115,8 +115,9 @@ export default function FlowingFs() {
         justifyContent: "center",
         overflow: "hidden",
         gap: "2vw",
-        margin: "0 calc(var(--padding) * -1)",
-        marginBottom: "4rem",
+        margin: "6rem calc(var(--padding) * -1)",
+        marginTop: "6rem",
+        marginBottom: "6rem",
       }}
     >
       {items.map((i) => (
@@ -126,7 +127,7 @@ export default function FlowingFs() {
           style={{
             transform: "scaleX(var(--sx, 0))",
             // fontSize: "var(--fs, 6vw)",
-            fontSize: "8vw",
+            fontSize: "7vw",
             // color: (i - 1) % 4 == 0 ? "white" : "black",
           }}
         >

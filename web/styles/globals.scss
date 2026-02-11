@@ -170,3 +170,20 @@ input:focus-visible {
     }
   }
 }
+
+.link-button {
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+
+  div {
+    background: var(--light-grey);
+    padding: 0 0.5rem;
+  }
+
+  &:hover {
+    div {
+      background: var(--dark-grey);
+    }
+  }
+}

@@ -13,6 +13,7 @@ import page from './documents/page'
 import textBlock from './objects/textBlock'
 import meta from './objects/meta'
 import img from './objects/img'
+import event from './objects/event'
 
 export const schemaTypes = [
   // Documents
@@ -31,4 +32,5 @@ export const schemaTypes = [
   meta,
   textBlock,
   img,
+  event,
 ]
