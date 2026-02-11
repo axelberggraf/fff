@@ -94,6 +94,9 @@ export default {
                   {
                     type: 'home',
                   },
+                  {
+                    type: 'event',
+                  },
                 ],
                 options: {
                   disableNew: true,

@@ -15,6 +15,10 @@ export default {
       },
     },
     {
+      name: 'title',
+      type: 'string',
+    },
+    {
       name: 'artists',
       title: 'Kunstnere',
       type: 'array',
@@ -24,7 +28,7 @@ export default {
       name: 'events',
       title: 'Arrangementer',
       type: 'array',
-      of: [{type: 'event'}],
+      of: [{type: 'reference', to: {type: 'event'}}],
     },
   ],
   preview: {
