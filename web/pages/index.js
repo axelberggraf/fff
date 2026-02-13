@@ -8,7 +8,8 @@ import NewsModule from "@/components/modules/newsModule";
 import { client } from "@/client";
 import groq from "groq";
 
-export default function Home({ page, news }) {
+export default function Home({ page, news, memberNews }) {
+  console.log(memberNews);
   return (
     <>
       <Head>
@@ -17,7 +18,7 @@ export default function Home({ page, news }) {
       <div>
         <main>
           <FlowingFs />
-          <NewsModule news={news} />
+          <NewsModule news={news} memberNews={memberNews} />
           {/* <h1>Forbundet frie fotografer</h1> */}
           {page.intro && (
             <div>
@@ -58,6 +59,23 @@ export async function getStaticProps() {
     }
   `,
   );
+  const memberNews = await client.fetch(
+    groq`
+    *[_type == "medlemsNytt" ] | order(date desc) {
+      ...,
+      thumbnail{
+        ...,
+        alt,
+        crop,
+        hotspot,
+        asset->{
+          _id,
+          metadata{ dimensions, lqip }
+        }
+      }
+    }
+  `,
+  );
 
   // if (!page) {
   //   return {
@@ -75,6 +93,7 @@ export async function getStaticProps() {
     props: {
       page,
       news,
+      memberNews,
       settings,
     },
     revalidate: 60,

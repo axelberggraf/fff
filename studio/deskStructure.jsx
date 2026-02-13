@@ -6,6 +6,7 @@ export default (S) =>
     .items([
       S.listItem()
         .title('Hjem')
+        .icon(BsHouse)
         .child(S.document().title('Hjem').schemaType('home').documentId('singleton-home')),
       S.divider(),
       S.listItem()
@@ -59,6 +60,8 @@ export default (S) =>
               S.listItem().title('Medlemsnytt').child(S.documentTypeList('medlemsNytt')),
             ]),
         ),
+      S.divider(),
+      S.listItem().title('Arrangementer').child(S.documentTypeList('event')),
       // S.listItem().title('Exhibitors').child(S.documentTypeList('exhibitor')),
       //   S.listItem()
       //     .title('Exhibitors')

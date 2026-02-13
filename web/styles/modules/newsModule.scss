@@ -1,9 +1,22 @@
 @use "../mixins" as m;
 
 .news-module {
-  @include m.grid;
   margin-bottom: 6rem;
 
+  .filters {
+    margin-bottom: 1rem;
+    button {
+      all: unset;
+      cursor: pointer;
+      // font-size: 0.75rem;
+      position: relative;
+      @include m.check;
+    }
+  }
+
+  .news-grid {
+    @include m.grid;
+  }
   a {
     text-decoration: none;
     &:hover {
@@ -20,6 +33,7 @@
     padding-right: 1em;
     h4 {
       margin-bottom: 0;
+      margin-top: 0;
     }
 
     .news-date {
@@ -33,6 +47,19 @@
       left: 0;
       transform: scale(-1, 1);
       color: var(--dark-grey);
+    }
+  }
+  .member-article {
+    padding: 0;
+    img {
+      // transition: transform 0.75s;
+    }
+
+    &:hover {
+      background: var(--bg);
+      img {
+        transform: scale(-1, 1);
+      }
     }
   }
 }

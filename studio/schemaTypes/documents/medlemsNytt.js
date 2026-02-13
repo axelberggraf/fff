@@ -8,26 +8,36 @@ export default {
       type: 'string',
     },
     {
-      name: 'slug',
-      type: 'slug',
+      name: 'thumbnail',
+      type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+        },
+      ],
       options: {
-        source: 'title',
+        hotspot: true,
       },
-      validation: (rule) => rule.required().error('Slug is required'),
     },
     {
-      name: 'newsType',
-      title: 'Type',
-      type: 'string',
-      options: {
-        layout: 'radio',
-
-        list: [
-          {value: 'utstilling', title: 'Utstilling'},
-          {value: 'notis', title: 'Notis / Annet'},
-        ],
-      },
+      name: 'url',
+      type: 'url',
+      validation: (rule) => rule.required().error('URL is required'),
     },
+    // {
+    //   name: 'newsType',
+    //   title: 'Type',
+    //   type: 'string',
+    //   options: {
+    //     layout: 'radio',
+
+    //     list: [
+    //       {value: 'utstilling', title: 'Utstilling'},
+    //       {value: 'notis', title: 'Notis / Annet'},
+    //     ],
+    //   },
+    // },
     {
       name: 'dateStart',
       description: 'Dato Start',
@@ -39,10 +49,6 @@ export default {
       title: 'Dato Slutt',
       type: 'date',
       hidden: ({parent}) => parent.newsType !== 'utstilling',
-    },
-    {
-      name: 'content',
-      type: 'textBlock',
     },
     {
       name: 'date',
