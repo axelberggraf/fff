@@ -1,16 +1,30 @@
 @use "../mixins" as m;
+@use "../responsive" as r;
 
 .template-page {
   @include m.grid;
 
   h1 {
     margin-top: 6rem;
-    grid-column: 4 / span 6;
+    grid-column: 2 / span 3;
   }
   h1 {
-    grid-column: 4 / span 6;
+    grid-column: 2 / span 3;
   }
   .rich-text {
-    grid-column: 4 / span 6;
+    grid-column: 2 / span 3;
+  }
+
+  @include r.s(lg) {
+    h1 {
+      margin-top: 6rem;
+      grid-column: 4 / span 6;
+    }
+    h1 {
+      grid-column: 4 / span 6;
+    }
+    .rich-text {
+      grid-column: 4 / span 6;
+    }
   }
 }

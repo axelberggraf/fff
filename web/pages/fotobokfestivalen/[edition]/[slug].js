@@ -5,11 +5,11 @@ export default function EventPage({ edition, event }) {
   if (!edition || !event) return null;
 
   return (
-    <main>
+    <div className="template-page">
       <p>{edition.title}</p>
       <h1>{event.title}</h1>
       {/* Render event content */}
-    </main>
+    </div>
   );
 }
 

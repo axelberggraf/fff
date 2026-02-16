@@ -1,17 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
 import Layout from "@/components/layout";
-import { client } from "@/client";
+import { client, previewClient } from "@/client";
 import groq from "groq";
 import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
+import Head from "next/head";
 import { PortableText } from "@portabletext/react";
 import { serializer } from "@/lib/serializer";
-export default function VUInfo({ page }) {
+
+export default function Arrangement({ page, settings }) {
+  console.log(page);
   return (
     <>
-      <Head>
-        <title>Om | Vårutstillingen</title>
-      </Head>
+      <Head></Head>
       <div className="template-page">
         <h1>{page.title}</h1>
         <div className="rich-text">
@@ -22,20 +21,33 @@ export default function VUInfo({ page }) {
   );
 }
 
-VUInfo.getLayout = function getLayout(page) {
+Arrangement.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
-export async function getStaticProps() {
+export const getStaticPaths = async () => {
+  const data = await client.fetch(groq`
+    *[_type == "event" && eventType == "fff"][].slug.current
+   `);
+  return {
+    paths: data.map((slug) => ({ params: { slug } })),
+    fallback: "blocking",
+  };
+};
+
+export async function getStaticProps({ params }) {
   const page = await client.fetch(
     groq`
-    *[_id == "vu-om" ][0] {
+    *[_type == "event" && eventType == "fff" && slug.current == $slug ][0] {
       title,
       content[]{
         ${TEXTBLOCK}
       }
     }
   `,
+    {
+      slug: params.slug,
+    },
   );
 
   if (!page) {

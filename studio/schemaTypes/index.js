@@ -9,11 +9,12 @@ import vuOm from './documents/vu-om'
 import ffoEdition from './documents/ffo-edition'
 import ffoSingleton from './documents/ffo-singleton'
 import page from './documents/page'
+import singletonPage from './documents/singleton-page'
 // Objects
 import textBlock from './objects/textBlock'
 import meta from './objects/meta'
 import img from './objects/img'
-import event from './objects/event'
+import event from './documents/event'
 
 export const schemaTypes = [
   // Documents
@@ -27,6 +28,7 @@ export const schemaTypes = [
   ffoEdition,
   ffoSingleton,
   page,
+  singletonPage,
 
   // Objects
   meta,

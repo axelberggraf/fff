@@ -2,14 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/layout";
 import { earl } from "@/fonts";
-import FlowingFs from "@/components/flowingFs";
 import { SETTINGS } from "@/lib/queries";
-import NewsModule from "@/components/modules/newsModule";
 import { client } from "@/client";
 import groq from "groq";
 
-export default function Home({ page, news, memberNews }) {
-  console.log(memberNews);
+import FlowingFs from "@/components/flowingFs";
+import NewsModule from "@/components/modules/newsModule";
+import EventsModule from "@/components/modules/eventsModule";
+
+export default function Home({ page, news, memberNews, events }) {
+  console.log(events);
   return (
     <>
       <Head>
@@ -19,6 +21,7 @@ export default function Home({ page, news, memberNews }) {
         <main>
           <FlowingFs />
           <NewsModule news={news} memberNews={memberNews} />
+          <EventsModule events={events} />
           {/* <h1>Forbundet frie fotografer</h1> */}
           {page.intro && (
             <div>
@@ -76,6 +79,29 @@ export async function getStaticProps() {
     }
   `,
   );
+  const events = await client.fetch(
+    groq`
+    *[_type == "event" && archived != true] | order(date desc) {
+  ...,
+    slug,
+    thumbnail{
+      ...,
+      alt,
+      crop,
+      hotspot,
+      asset->{
+        _id,
+        metadata{ dimensions, lqip }
+      }
+    },
+    "parent": select(
+      eventType == "ffo" => *[_type == "ffoEdition" && references(^._id)][0]{slug},
+      eventType == "vu"  => *[_type == "vuEdition"  && references(^._id)][0]{slug},
+      null
+    )
+  }
+  `,
+  );
 
   // if (!page) {
   //   return {
@@ -95,6 +121,7 @@ export async function getStaticProps() {
       news,
       memberNews,
       settings,
+      events,
     },
     revalidate: 60,
   };

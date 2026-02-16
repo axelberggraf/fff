@@ -22,11 +22,22 @@ export default (S) =>
                 .child(
                   S.document().title('Hjem').schemaType('vuSingleton').documentId('singleton-vu'),
                 ),
+              S.divider(),
               S.listItem()
                 .title('Om')
                 .icon(BsInfoCircle)
-                .child(S.document().title('Om').schemaType('vuOm').documentId('om-vu')),
-              S.listItem().title('Utgaver').child(S.documentTypeList('vuEdition')),
+                .child(S.document().title('Om').schemaType('singletonPage').documentId('vu-om')),
+              S.listItem()
+                .title('Søknadsinformasjon')
+                .icon(BsInfoCircle)
+                .child(
+                  S.document()
+                    .title('Søknadsinformasjon')
+                    .schemaType('singletonPage')
+                    .documentId('vu-soknadsinfo'),
+                ),
+              S.divider(),
+              S.listItem().title('Utgaver (Arkiv)').child(S.documentTypeList('vuEdition')),
             ]),
         ),
       S.listItem()
@@ -45,6 +56,11 @@ export default (S) =>
                     .schemaType('ffoSingleton')
                     .documentId('singleton-ffo'),
                 ),
+              S.listItem()
+                .title('Om')
+                .icon(BsInfoCircle)
+                .child(S.document().title('Om').schemaType('singletonPage').documentId('ffo-om')),
+
               S.listItem().title('Utgaver').child(S.documentTypeList('ffoEdition')),
             ]),
         ),

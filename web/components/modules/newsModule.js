@@ -25,9 +25,9 @@ export default function NewsModule({ news, memberNews }) {
           <>
             {news?.map((item) => (
               <Link key={item._id} href={`/nyheter/${item.slug.current}`}>
-                <article>
+                <article className="news-article">
                   <h4>{item.title}</h4>
-                  <div className="news-date">{item.date}</div>
+                  <div className="news-date">{`${item.date.split("-")[1]}.${item.date.split("-")[2]}.${item.date.split("-")[0]}`}</div>
                 </article>
               </Link>
             ))}
@@ -40,8 +40,10 @@ export default function NewsModule({ news, memberNews }) {
               <a key={i} href={item.url} target="_blank">
                 <article className="member-article">
                   <SanityImage image={item.thumbnail} aspect={{ w: 6, h: 4 }} />
-                  <h4>{item.title}</h4>
-                  <div className="news-date">{item.date}</div>
+                  <div className="member-info">
+                    <h4>{item.title}</h4>
+                    <div className="news-date">{item.date}</div>
+                  </div>
                 </article>
               </a>
             ))}

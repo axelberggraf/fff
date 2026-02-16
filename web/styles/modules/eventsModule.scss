@@ -1,6 +1,6 @@
 @use "../mixins" as m;
 
-.news-module {
+.events-module {
   margin-bottom: 6rem;
 
   .filters {
@@ -14,7 +14,7 @@
     }
   }
 
-  .news-grid {
+  .events-grid {
     @include m.grid;
   }
   a {
@@ -37,27 +37,20 @@
       margin-top: 0;
     }
 
-    .news-date {
+    .events-date {
       color: var(--grey-text);
     }
   }
-  .news-article {
-    &::before {
-      content: "F";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: scale(-1, 1);
-      color: var(--dark-grey);
-    }
-  }
-  .member-article {
+  .event-article {
     padding: 0;
     img {
       // transition: transform 0.75s;
     }
-
-    .member-info {
+    .thumbnail-placeholder {
+      aspect-ratio: 6 / 4;
+      background: var(--light-grey);
+    }
+    .event-info {
       position: relative;
       padding-left: 1em;
       &::before {
@@ -69,7 +62,6 @@
         color: var(--dark-grey);
       }
     }
-
     &:hover {
       background: var(--bg);
       img {

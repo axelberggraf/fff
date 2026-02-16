@@ -25,19 +25,6 @@ export default {
       type: 'url',
       validation: (rule) => rule.required().error('URL is required'),
     },
-    // {
-    //   name: 'newsType',
-    //   title: 'Type',
-    //   type: 'string',
-    //   options: {
-    //     layout: 'radio',
-
-    //     list: [
-    //       {value: 'utstilling', title: 'Utstilling'},
-    //       {value: 'notis', title: 'Notis / Annet'},
-    //     ],
-    //   },
-    // },
     {
       name: 'dateStart',
       description: 'Dato Start',
