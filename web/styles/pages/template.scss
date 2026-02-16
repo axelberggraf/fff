@@ -18,13 +18,13 @@
   @include r.s(lg) {
     h1 {
       margin-top: 6rem;
-      grid-column: 4 / span 6;
+      grid-column: 3 / span 6;
     }
     h1 {
-      grid-column: 4 / span 6;
+      grid-column: 3 / span 6;
     }
     .rich-text {
-      grid-column: 4 / span 6;
+      grid-column: 3 / span 6;
     }
   }
 }

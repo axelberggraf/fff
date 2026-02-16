@@ -73,7 +73,7 @@ export default (S) =>
             .title('VU')
             .items([
               S.listItem().title('Nyhetssaker').child(S.documentTypeList('news')),
-              S.listItem().title('Medlemsnytt').child(S.documentTypeList('medlemsNytt')),
+              S.listItem().title('Medlemsaktivitet').child(S.documentTypeList('medlemsNytt')),
             ]),
         ),
       S.divider(),

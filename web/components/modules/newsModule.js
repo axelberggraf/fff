@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import SanityImage from "../utility/sanityImage";
 import { useEffect, useState } from "react";
-export default function NewsModule({ news, memberNews }) {
+export default function NewsModule({ news, recentNews, memberNews }) {
   const [newsType, setNewsType] = useState("fff");
   return (
     <div className="news-module">
@@ -27,10 +27,19 @@ export default function NewsModule({ news, memberNews }) {
               <Link key={item._id} href={`/nyheter/${item.slug.current}`}>
                 <article className="news-article">
                   <h4>{item.title}</h4>
-                  <div className="news-date">{`${item.date.split("-")[1]}.${item.date.split("-")[2]}.${item.date.split("-")[0]}`}</div>
+                  <div className="news-date">{`${item.date.split("-")[2]}.${item.date.split("-")[1]}.${item.date.split("-")[0]}`}</div>
                 </article>
               </Link>
             ))}
+            {recentNews?.length > 0 &&
+              recentNews.map((item) => (
+                <Link key={item._id} href={`/nyheter/${item.slug.current}`}>
+                  <article className="news-article">
+                    <h4>{item.title}</h4>
+                    <div className="news-date">{`${item.date.split("-")[2]}.${item.date.split("-")[1]}.${item.date.split("-")[0]}`}</div>
+                  </article>
+                </Link>
+              ))}
           </>
         )}
 

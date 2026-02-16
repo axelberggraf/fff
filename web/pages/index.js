@@ -20,7 +20,11 @@ export default function Home({ page, news, memberNews, events }) {
       <div>
         <main>
           <FlowingFs />
-          <NewsModule news={news} memberNews={memberNews} />
+          <NewsModule
+            news={page.pinnedNews}
+            recentNews={page.recentNews}
+            memberNews={memberNews}
+          />
           <EventsModule events={events} />
           {/* <h1>Forbundet frie fotografer</h1> */}
           {page.intro && (
@@ -50,8 +54,15 @@ Home.getLayout = function getLayout(page) {
 export async function getStaticProps() {
   const page = await client.fetch(
     groq`
-    *[_id == "singleton-home" ][0] {
-      ...
+    *[_id == "singleton-home"][0] {
+      ...,
+      "pinnedNews": news[]->{
+        ...
+      },
+      "recentNews": *[_type == "news" && !(_id in ^.news[]._ref)] 
+        | order(date desc) [0..6] {
+        ...
+      }
     }
   `,
   );
