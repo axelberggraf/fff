@@ -5,15 +5,31 @@
   cursor: pointer;
   position: fixed;
   top: var(--padding);
-  z-index: 5;
-  left: calc(25% + 40em);
+  z-index: 12;
+  // left: calc(25% + 40em);
+  right: calc(
+    var(--padding) + 4 *
+      (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
+      (4 * var(--gap))
+  );
   @include m.check;
 }
+
 .menu {
   position: fixed;
   z-index: 6;
-  top: calc(var(--padding) + 2em);
-  left: calc(25% + 40em);
+  z-index: 11;
+  top: 0;
+  padding: 1rem;
+  padding-top: calc(var(--padding) + 2em);
+  background: var(--light-grey);
+  // left: calc(25% + 40em);
+  right: calc(
+    var(--padding) + 4 *
+      (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
+      (4 * var(--gap))
+  );
+
   display: flex;
   gap: 1rem;
 

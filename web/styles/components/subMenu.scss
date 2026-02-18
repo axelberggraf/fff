@@ -3,9 +3,17 @@
   position: fixed;
   top: var(--padding);
   left: 25%;
-  display: flex;
-  gap: 1rem;
+  left: calc(
+    var(--padding) + 2 * ((100vw - 2 * var(--padding) - 11 * var(--gap)) / 12) +
+      2 * var(--gap)
+  );
   z-index: 10;
+
+  .sub-menu-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
 
   .sub-menu-title {
     display: inline-block;

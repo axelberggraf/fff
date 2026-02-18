@@ -9,6 +9,23 @@ export const IMG = `
             }
         }
 `;
+export const LINK = `
+    linkText,
+    type,
+    type == "internal" => {
+        ...,
+        "internalLink": internalLink->{
+          _type,
+          eventType,
+          "slug": slug.current,
+          "parent": parent -> {"slug": slug.current}
+        },
+      },
+    type == "external" => {
+        url,
+        blank
+      },
+`;
 
 export const SETTINGS = `
     meta{
@@ -66,7 +83,7 @@ export const TEXTBLOCK = `
         _type == "internalLink" => {
             "slug": @.reference->slug
         },
-        _type == "link" => {
+    _type == "link" => {
         ...,
         "internalLink": internalLink->{
           _type,
@@ -87,6 +104,11 @@ export const TEXTBLOCK = `
       _type == 'image' => {
         style,
         ${IMG}
+    },
+      _type == 'linkList' => {
+        links[]{
+            ${LINK}
+        }
     },
       _type == 'carousel' => {
         slides[]{

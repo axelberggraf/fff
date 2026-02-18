@@ -3,22 +3,40 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'year',
-      title: 'År',
+      name: 'phase',
+      title: 'Fase',
       type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          {value: 'promo', title: 'Promo'},
+          {value: 'active', title: 'Aktiv'},
+          {value: 'inactive', title: 'Inaktiv'},
+        ],
+      },
     },
     {
-      name: 'artists',
-      title: 'Kunstnere',
-      type: 'array',
-      of: [{type: 'string'}],
+      name: 'current',
+      title: 'Gjeldende utgave',
+      type: 'reference',
+      to: [
+        {
+          type: 'vuEdition',
+        },
+      ],
     },
-    {
-      name: 'events',
-      title: 'Arrangementer',
-      type: 'array',
-      of: [{type: 'event'}],
-    },
+    // {
+    //   name: 'artists',
+    //   title: 'Kunstnere',
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    // },
+    // {
+    //   name: 'events',
+    //   title: 'Arrangementer',
+    //   type: 'array',
+    //   of: [{type: 'event'}],
+    // },
   ],
   preview: {
     select: {year: 'year'},

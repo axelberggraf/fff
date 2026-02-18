@@ -14,7 +14,7 @@ export default function EditionPage({ edition }) {
         {edition.events?.map((event) => (
           <li key={event.slug?.current}>
             <Link
-              href={`/fotobokfestivalen/${edition.slug?.current}/${event.slug?.current}`}
+              href={`/varutstillingen/${edition.slug?.current}/${event.slug?.current}`}
             >
               {event.title}
             </Link>
@@ -31,7 +31,7 @@ EditionPage.getLayout = function getLayout(page) {
 
 export async function getStaticPaths() {
   const editions = await client.fetch(groq`
-    *[_type == "ffoEdition" && defined(slug.current)]{
+    *[_type == "vuEdition" && defined(slug.current)]{
       "edition": slug.current
     }
   `);
@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const edition = await client.fetch(
     groq`
-      *[_type == "ffoEdition" && slug.current == $edition][0]{
+      *[_type == "vuEdition" && archived == true && slug.current == $edition][0]{
         title,
         slug,
         year,

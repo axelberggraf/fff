@@ -12,7 +12,7 @@ export const menuConfig = [
   },
   {
     id: "bli-medlem",
-    label: "Bli Medlem",
+    label: "Medlemskap",
     href: "/bli-medlem",
     slug: "bli-medlem",
   },
@@ -27,15 +27,15 @@ export const menuConfig = [
     slug: "fagpolitikk",
   },
   {
-    label: "Bibliotek",
+    label: "Fasiliteter",
     href: "/bibliotek",
     slug: "bibliotek",
   },
-  {
-    label: "Leilighet",
-    href: "/leilighet",
-    slug: "leilighet",
-  },
+  // {
+  //   label: "Leilighet",
+  //   href: "/leilighet",
+  //   slug: "leilighet",
+  // },
   {
     label: "Stipender",
     href: "/stipender",
@@ -47,33 +47,33 @@ export const menuConfig = [
     slug: "arkiv",
     style: { marginBottom: "1rem" },
   },
-  {
-    label: "NOFOFO",
-    href: "/nofofo",
-    slug: "nofofo",
-  },
+  // {
+  //   label: "NOFOFO",
+  //   href: "/nofofo",
+  //   slug: "nofofo",
+  // },
 
-  {
-    label: "Vårutstillingen",
-    href: "/varutstillingen",
-    slug: "varutstillingen",
-    subItems: [
-      { slug: "om", label: "Om" },
-      // { slug: "historikk", label: "Historikk" },
-      { slug: "soknadsinfo", label: "Søknadsinformasjon" },
-      { slug: "arkiv", label: "Arkiv" },
-    ],
-  },
-  {
-    label: "Fotobokfestivalen",
-    href: "/fotobokfestivalen",
-    slug: "fotobokfestivalen",
-    subItems: [
-      { slug: "om", label: "Om" },
-      { slug: "program", label: "Program" },
-      { slug: "arkiv", label: "Arkiv" },
-    ],
-  },
+  // {
+  //   label: "Vårutstillingen",
+  //   href: "/varutstillingen",
+  //   slug: "varutstillingen",
+  //   subItems: [
+  //     { slug: "om", label: "Om" },
+  //     // { slug: "historikk", label: "Historikk" },
+  //     { slug: "soknadsinfo", label: "Søknadsinformasjon" },
+  //     { slug: "arkiv", label: "Arkiv" },
+  //   ],
+  // },
+  // {
+  //   label: "Fotobokfestival Oslo",
+  //   href: "/fotobokfestival",
+  //   slug: "fotobokfestival",
+  //   subItems: [
+  //     { slug: "om", label: "Om" },
+  //     { slug: "program", label: "Program" },
+  //     { slug: "arkiv", label: "Arkiv" },
+  //   ],
+  // },
 ];
 
 export const subMenuConfig = [
@@ -94,9 +94,9 @@ export const subMenuConfig = [
     ],
   },
   {
-    label: "Fotobokfestivalen",
-    href: "/fotobokfestivalen",
-    slug: "fotobokfestivalen",
+    label: "Fotobokfestival Oslo",
+    href: "/fotobokfestival",
+    slug: "fotobokfestival",
     subItems: [
       { slug: "om", label: "Om" },
       { slug: "program", label: "Program" },

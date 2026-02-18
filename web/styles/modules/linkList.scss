@@ -1,0 +1,16 @@
+@use "../mixins" as m;
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  li {
+    width: 100%;
+    .link-button {
+      width: 100%;
+      & > :first-child {
+        flex-grow: 1;
+      }
+    }
+  }
+}

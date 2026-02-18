@@ -24,6 +24,11 @@ export default {
       type: 'array',
       of: [{type: 'event'}],
     },
+    {
+      name: 'archived',
+      title: 'Arkivert',
+      type: 'boolean',
+    },
   ],
   // preview: {
   //   prepare() {

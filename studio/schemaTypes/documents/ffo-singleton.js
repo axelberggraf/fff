@@ -3,9 +3,27 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'year',
-      title: 'År',
+      name: 'phase',
+      title: 'Fase',
       type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          {value: 'promo', title: 'Promo'},
+          {value: 'active', title: 'Aktiv'},
+          {value: 'inactive', title: 'Inaktiv'},
+        ],
+      },
+    },
+    {
+      name: 'current',
+      title: 'Gjeldende utgave',
+      type: 'reference',
+      to: [
+        {
+          type: 'ffoEdition',
+        },
+      ],
     },
     {
       name: 'artists',
@@ -24,7 +42,7 @@ export default {
     select: {year: 'year'},
     prepare({year}) {
       return {
-        title: 'Fotobokfestivalen',
+        title: 'Fotobokfestival',
         subtitle: year,
       }
     },

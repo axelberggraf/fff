@@ -35,7 +35,7 @@ export default {
     select: {year: 'year'},
     prepare({year}) {
       return {
-        title: 'Fotobokfestivalen',
+        title: 'Fotobokfestival',
         subtitle: year,
       }
     },

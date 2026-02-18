@@ -15,6 +15,7 @@ import textBlock from './objects/textBlock'
 import meta from './objects/meta'
 import img from './objects/img'
 import event from './documents/event'
+import linkObject from './objects/link'
 
 export const schemaTypes = [
   // Documents
@@ -35,4 +36,5 @@ export const schemaTypes = [
   textBlock,
   img,
   event,
+  linkObject,
 ]

@@ -3,16 +3,15 @@ import Image from "next/image";
 import Layout from "@/components/layout";
 import { client } from "@/client";
 import groq from "groq";
-import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
+import { TEXTBLOCK, SETTINGS } from "@/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { serializer } from "@/lib/serializer";
 
-export default function VUSoknadsinfo({ page }) {
-  console.log(page.content);
+export default function FFOInfo({ page }) {
   return (
     <>
       <Head>
-        <title>Søknadsinformasjon | Vårutstillingen</title>
+        <title>Om |Fotobokfestival Oslo</title>
       </Head>
       <div className="template-page">
         <h1>{page.title}</h1>
@@ -24,14 +23,14 @@ export default function VUSoknadsinfo({ page }) {
   );
 }
 
-VUSoknadsinfo.getLayout = function getLayout(page) {
+FFOInfo.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
 export async function getStaticProps() {
   const page = await client.fetch(
     groq`
-    *[_id == "vu-soknadsinfo" ][0] {
+    *[_id == "ffo-om" ][0] {
       title,
       content[]{
         ${TEXTBLOCK}

@@ -19,7 +19,7 @@ export default function FFArkiv(props) {
           <div>
             {props.editions.map((edition) => (
               <Link
-                href={`/fotobokfestivalen/${edition.slug.current}`}
+                href={`/fotobokfestival/${edition.slug.current}`}
                 key={edition.slug.current}
               >
                 <div style={{ marginBottom: "1rem" }}>

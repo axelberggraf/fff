@@ -16,10 +16,22 @@ export default {
         layout: 'radio',
         list: [
           {value: 'fff', title: 'FFF'},
-          {value: 'ffo', title: 'Fotobokfestivalen'},
+          {value: 'ffo', title: 'Fotobokfestival'},
           {value: 'vu', title: 'Vårutstillingen'},
         ],
       },
+    },
+    {
+      name: 'parent',
+      type: 'reference',
+      to: [
+        {
+          type: 'vuEdition',
+        },
+        {
+          type: 'ffoEdition',
+        },
+      ],
     },
     {
       name: 'archived',

@@ -7,6 +7,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'slug',
+      type: 'slug',
+      // hidden: true,
+    },
+    {
       name: 'content',
       type: 'textBlock',
     },

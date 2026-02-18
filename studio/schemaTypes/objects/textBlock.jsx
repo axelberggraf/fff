@@ -2,7 +2,14 @@ import {BsBoxArrowInRight} from 'react-icons/bs'
 const smallRender = (props) => <span style={{fontSize: '0.8rem'}}>{props.children}</span>
 const centerRender = (props) => <p style={{textAlign: 'center'}}>{props.children}</p>
 
-import {BsArrowUpRightSquare, BsTextLeft, BsTextCenter, BsTextRight, BsImages} from 'react-icons/bs'
+import {
+  BsArrowUpRightSquare,
+  BsTextLeft,
+  BsTextCenter,
+  BsTextRight,
+  BsImages,
+  BsList,
+} from 'react-icons/bs'
 import {GoLaw} from 'react-icons/go'
 
 const mediumRender = (props) => <p style={{fontSize: '1.2rem'}}>{props.children}</p>
@@ -148,6 +155,22 @@ export default {
           }
         },
       },
+    },
+    {
+      type: 'object',
+      name: 'linkList',
+      icon: BsList,
+      fields: [
+        {
+          name: 'links',
+          type: 'array',
+          of: [
+            {
+              type: 'linkObject',
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'image',

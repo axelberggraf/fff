@@ -1,5 +1,6 @@
 import Carousel from "@/components/modules/carousel";
 import Link from "next/link";
+import LinkList from "@/components/modules/linkList";
 export const serializer = {
   block: {
     normal: ({ children }) => <p>{children}</p>,
@@ -47,6 +48,7 @@ export const serializer = {
     carousel: (props) => (
       <Carousel props={props.value} slides={props.value.slides} />
     ),
+    linkList: (props) => <LinkList links={props.value.links} />,
     // image: (props) => {
     //   return <TextImage image={props.value} />;
     // },

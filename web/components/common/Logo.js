@@ -5,8 +5,16 @@ export default function Logo({ activePage }) {
   const [showFFF, setShowFFF] = useState(false);
   return (
     <>
+      <Link href="/">
+        <div className="logo-container">
+          <span className="f">Forbundet</span>
+          <span className="f">Frie</span>
+          <span className="f">Fotografer</span>
+        </div>
+      </Link>
+      {/* <>
       {activePage?.firstSlug != "varutstillingen" &&
-        activePage?.firstSlug != "fotobokfestivalen" && (
+        activePage?.firstSlug != "fotobokfestival" && (
           <Link href="/">
             <div className="logo-container">
               <span className="f">Forbundet</span>
@@ -38,7 +46,7 @@ export default function Logo({ activePage }) {
           )}
         </div>
       )}
-      {activePage?.firstSlug == "fotobokfestivalen" && (
+      {activePage?.firstSlug == "fotobokfestival" && (
         <div
           className="logo-container"
           onMouseEnter={() => setShowFFF(true)}
@@ -54,13 +62,14 @@ export default function Logo({ activePage }) {
             </>
           ) : (
             <>
-              <span className="f">Fotobokfestivalen</span>
+              <span className="f">Fotobokfestival Oslo</span>
               <span>&nbsp;</span>
               <span>&nbsp;</span>
             </>
           )}
         </div>
       )}
+    </> */}
     </>
   );
 }

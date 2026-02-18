@@ -10,6 +10,24 @@ export default (S) =>
         .child(S.document().title('Hjem').schemaType('home').documentId('singleton-home')),
       S.divider(),
       S.listItem()
+        .title('Undersider')
+        .child(
+          S.list()
+            .title('Undersider')
+            .items([
+              S.listItem()
+                .title('Fagpolitikk')
+                .icon(BsInfoCircle)
+                .child(
+                  S.document()
+                    .title('Fagpolitikk')
+                    .schemaType('singletonPage')
+                    .documentId('fagpolitikk'),
+                ),
+              S.listItem().title('Sider').child(S.documentTypeList('page')),
+            ]),
+        ),
+      S.listItem()
         .title('Vårutstillingen')
         .icon(BsSunrise)
         .child(
@@ -37,11 +55,11 @@ export default (S) =>
                     .documentId('vu-soknadsinfo'),
                 ),
               S.divider(),
-              S.listItem().title('Utgaver (Arkiv)').child(S.documentTypeList('vuEdition')),
+              S.listItem().title('Utgaver').child(S.documentTypeList('vuEdition')),
             ]),
         ),
       S.listItem()
-        .title('Fotobokfestivalen')
+        .title('Fotobokfestival Oslo')
         .icon(BsBook)
         .child(
           S.list()
