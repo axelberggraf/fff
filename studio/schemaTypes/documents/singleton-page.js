@@ -10,6 +10,7 @@ export default {
       name: 'slug',
       type: 'slug',
       // hidden: true,
+      readOnly: true,
     },
     {
       name: 'content',

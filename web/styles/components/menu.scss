@@ -7,11 +7,20 @@
   top: var(--padding);
   z-index: 12;
   // left: calc(25% + 40em);
-  right: calc(
-    var(--padding) + 4 *
-      (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
-      (4 * var(--gap))
+  // right: calc(
+  //   var(--padding) + 4 *
+  //     (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
+  //     (4 * var(--gap))
+  // );
+  left: calc(
+    9 * (100vw - (var(--padding) * 2) - (var(--gap) * 11)) / 12 +
+      var(--padding) + (var(--gap) * 10)
   );
+  left: calc(
+    10 * (100vw - (var(--padding) * 2) - (var(--gap) * 11)) / 12 +
+      var(--padding) + (var(--gap) * 12)
+  );
+  margin-left: 1rem;
   @include m.check;
 }
 
@@ -23,11 +32,20 @@
   padding: 1rem;
   padding-top: calc(var(--padding) + 2em);
   background: var(--light-grey);
+  background: white;
   // left: calc(25% + 40em);
-  right: calc(
-    var(--padding) + 4 *
-      (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
-      (4 * var(--gap))
+  // right: calc(
+  //   var(--padding) + 4 *
+  //     (((100vw - (2 * var(--padding))) - (11 * var(--gap))) / 12) +
+  //     (4 * var(--gap))
+  // );
+  left: calc(
+    9 * (100vw - (var(--padding) * 2) - (var(--gap) * 11)) / 12 +
+      var(--padding) + (var(--gap) * 10)
+  );
+  left: calc(
+    10 * (100vw - (var(--padding) * 2) - (var(--gap) * 11)) / 12 +
+      var(--padding) + (var(--gap) * 12)
   );
 
   display: flex;

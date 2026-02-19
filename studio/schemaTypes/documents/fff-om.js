@@ -1,10 +1,14 @@
 export default {
-  name: 'vuOm',
+  name: 'fffOm',
   type: 'document',
   fields: [
     {
       name: 'title',
       type: 'string',
+    },
+    {
+      name: 'slug',
+      type: 'slug',
     },
     {
       name: 'content',

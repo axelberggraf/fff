@@ -24,13 +24,13 @@ export default {
       type: 'url',
       title: 'URL',
       validation: (Rule) => Rule.uri({scheme: ['http', 'https', 'tel', 'mailto']}),
-      hidden: ({parent}) => parent.type !== 'external',
+      hidden: ({parent}) => parent?.type !== 'external',
     },
     {
       title: 'Open in new tab',
       name: 'blank',
       type: 'boolean',
-      hidden: ({parent}) => parent.type !== 'external',
+      hidden: ({parent}) => parent?.type !== 'external',
     },
     {
       name: 'internalLink',
@@ -44,6 +44,9 @@ export default {
         },
         {
           type: 'event',
+          options: {
+            filter: 'archived == true',
+          },
         },
         {
           type: 'page',
@@ -55,7 +58,7 @@ export default {
       options: {
         disableNew: true,
       },
-      hidden: ({parent}) => !parent.type || parent?.type == 'external',
+      hidden: ({parent}) => !parent?.type || parent?.type == 'external',
     },
   ],
 }

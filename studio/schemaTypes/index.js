@@ -5,7 +5,8 @@ import news from './documents/news'
 import medlemsNytt from './documents/medlemsNytt'
 import vuSingleton from './documents/vu-singleton'
 import vuEdition from './documents/vu-edition'
-import vuOm from './documents/vu-om'
+// import vuOm from './documents/vu-om'
+import fffOm from './documents/fff-om'
 import ffoEdition from './documents/ffo-edition'
 import ffoSingleton from './documents/ffo-singleton'
 import page from './documents/page'
@@ -25,7 +26,7 @@ export const schemaTypes = [
   medlemsNytt,
   vuSingleton,
   vuEdition,
-  vuOm,
+  fffOm,
   ffoEdition,
   ffoSingleton,
   page,

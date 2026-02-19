@@ -1,0 +1,46 @@
+@use "../mixins" as m;
+
+.mobile-menu-button {
+  all: unset;
+  cursor: pointer;
+  position: fixed;
+  top: var(--padding);
+  z-index: 12;
+  // left: calc(25% + 40em);
+  right: var(--padding);
+  @include m.check;
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: 6;
+  z-index: 11;
+  top: calc(var(--padding) / 2);
+  top: 0;
+  padding: 1rem;
+  padding-top: calc(var(--padding) + 2em);
+  padding-top: 1rem;
+  background: var(--light-grey);
+  right: calc(var(--padding) / 2);
+  right: 0;
+  width: 100vw;
+
+  display: flex;
+  gap: 1rem;
+
+  .menu-title {
+    display: inline-block;
+    position: relative;
+    @include m.check;
+    &:hover {
+      background: var(--highlight-light);
+    }
+  }
+  // .sub-menu-item {
+  //   position: relative;
+
+  //   ul {
+
+  //   }
+  // }
+}

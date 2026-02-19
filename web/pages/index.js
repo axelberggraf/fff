@@ -7,10 +7,11 @@ import { client } from "@/client";
 import groq from "groq";
 
 import FlowingFs from "@/components/flowingFs";
+import HardFlowFs from "@/components/hardFlowFs";
 import NewsModule from "@/components/modules/newsModule";
 import EventsModule from "@/components/modules/eventsModule";
 
-export default function Home({ page, news, memberNews, events }) {
+export default function Home({ page, memberNews, events }) {
   console.log(events);
   return (
     <>
@@ -19,7 +20,8 @@ export default function Home({ page, news, memberNews, events }) {
       </Head>
       <div>
         <main>
-          <FlowingFs />
+          {/* <FlowingFs /> */}
+          <HardFlowFs />
           <NewsModule
             news={page.pinnedNews}
             recentNews={page.recentNews}
@@ -66,13 +68,13 @@ export async function getStaticProps() {
     }
   `,
   );
-  const news = await client.fetch(
-    groq`
-    *[_type == "news" ] | order(date desc) {
-      ...
-    }
-  `,
-  );
+  // const news = await client.fetch(
+  //   groq`
+  //   *[_type == "news" ][4] | order(date desc) {
+  //     ...
+  //   }
+  // `,
+  // );
   const memberNews = await client.fetch(
     groq`
     *[_type == "medlemsNytt" ] | order(date desc) {
@@ -129,7 +131,7 @@ export async function getStaticProps() {
   return {
     props: {
       page,
-      news,
+      // news,
       memberNews,
       settings,
       events,

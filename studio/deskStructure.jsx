@@ -10,10 +10,10 @@ export default (S) =>
         .child(S.document().title('Hjem').schemaType('home').documentId('singleton-home')),
       S.divider(),
       S.listItem()
-        .title('Undersider')
+        .title('Menypunkter')
         .child(
           S.list()
-            .title('Undersider')
+            .title('Sider')
             .items([
               S.listItem()
                 .title('Fagpolitikk')
@@ -24,7 +24,20 @@ export default (S) =>
                     .schemaType('singletonPage')
                     .documentId('fagpolitikk'),
                 ),
-              S.listItem().title('Sider').child(S.documentTypeList('page')),
+              S.listItem()
+                .title('Medlemskap')
+                .icon(BsInfoCircle)
+                .child(
+                  S.document()
+                    .title('Medlemskap')
+                    .schemaType('singletonPage')
+                    .documentId('medlemskap'),
+                ),
+              S.listItem()
+                .title('Om FFF')
+                .icon(BsInfoCircle)
+                .child(S.document().title('Om FFF').schemaType('fffOm').documentId('fff-om')),
+              // S.listItem().title('Sider').child(S.documentTypeList('page')),
             ]),
         ),
       S.listItem()
@@ -83,6 +96,24 @@ export default (S) =>
             ]),
         ),
       S.divider(),
+      S.listItem()
+        .title('Ressurser')
+        .icon(BsBook)
+        .child(
+          S.list()
+            .title('FFO')
+            .items([
+              S.listItem()
+                .title('Gjesteleilighet')
+                .icon(BsInfoCircle)
+                .child(
+                  S.document()
+                    .title('Gjesteleilighet')
+                    .schemaType('singletonPage')
+                    .documentId('leilighet'),
+                ),
+            ]),
+        ),
       S.listItem()
         .title('Nyheter')
         .icon(BsNewspaper)

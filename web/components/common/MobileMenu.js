@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function DesktopMenu({ config, activePage }) {
+export default function MobileMenu({ config, activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
@@ -13,14 +13,28 @@ export default function DesktopMenu({ config, activePage }) {
         ></div>
       )}
       <button
-        className={`menu-button ${menuOpen ? "checked" : ""}`}
+        className={`mobile-menu-button ${menuOpen ? "checked" : ""}`}
         onClick={() => setMenuOpen((prev) => !prev)}
       >
         Meny
       </button>
       {menuOpen && (
-        <div className="menu">
+        <div className="mobile-menu">
           <div>
+            <div className="menu-item">
+              <Link href={"/"}>
+                <div
+                  className={`menu-title ${
+                    activePage.firstSlug != "varutstillingen" &&
+                    activePage.firstSlug != "fotobokfestival"
+                      ? "checked"
+                      : ""
+                  }`}
+                >
+                  FFF
+                </div>
+              </Link>
+            </div>
             {config.map((item) => (
               <div
                 key={item.id}
@@ -59,7 +73,7 @@ export default function DesktopMenu({ config, activePage }) {
                 )}
               </div>
             ))}
-            {/* <Link
+            <Link
               className="link-button"
               href="http://minside.fffotografer.no/"
               target="blank"
@@ -68,7 +82,7 @@ export default function DesktopMenu({ config, activePage }) {
             >
               <div>Min Side</div>
               <div>↗</div>
-            </Link> */}
+            </Link>
           </div>
         </div>
       )}

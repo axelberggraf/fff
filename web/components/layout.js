@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import DesktopMenu from "./common/DesktopMenu";
 import useWindowSize from "@/hooks/useWindowSize";
 import Logo from "./common/Logo.js";
-import { menuConfig } from "@/lib/menuConfig";
-import { subMenuConfig } from "@/lib/menuConfig";
-
+import { menuConfig, subMenuConfig, mobileMenuConfig } from "@/lib/menuConfig";
+import MobileMenu from "./common/MobileMenu";
 export default function Layout({ children }) {
   const router = useRouter();
   const [activePage, setActivePage] = useState({
@@ -43,7 +42,12 @@ export default function Layout({ children }) {
             minHeight: "calc(100vh - 10rem)",
           }}
         >
-          <DesktopMenu config={menuConfig} activePage={activePage} />
+          {!windowSize.isMobile && (
+            <DesktopMenu config={menuConfig} activePage={activePage} />
+          )}
+          {windowSize.isMobile && (
+            <MobileMenu config={mobileMenuConfig} activePage={activePage} />
+          )}
           {children}
         </div>
         {/* <Footer settings={settings} /> */}

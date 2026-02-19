@@ -1,18 +1,19 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
+import { serializer } from "@/lib/serializer";
+import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
 import { client } from "@/client";
 import groq from "groq";
-import { SETTINGS, TEXTBLOCK } from "@/lib/queries";
 import { PortableText } from "@portabletext/react";
-import { serializer } from "@/lib/serializer";
-export default function Om({ page }) {
+
+export default function Medlemskap({ page, settings }) {
   return (
     <>
       <Head>
-        <title>Om | FFF</title>
+        <title>Medlemskap | FFF</title>
       </Head>
       <div className="template-page">
-        <h1>{page?.title}</h1>
+        <h1>{page.title}</h1>
         <div className="rich-text">
           <PortableText value={page.content} components={serializer} />
         </div>
@@ -21,14 +22,14 @@ export default function Om({ page }) {
   );
 }
 
-Om.getLayout = function getLayout(page) {
+Medlemskap.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
 export async function getStaticProps() {
   const page = await client.fetch(
     groq`
-    *[_id == "fff-om" ][0] {
+    *[_id == "medlemskap" ][0] {
       title,
       content[]{
         ${TEXTBLOCK}
